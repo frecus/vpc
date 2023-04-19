@@ -1,0 +1,54 @@
+aws_instance.test-instance[1] (remote-exec): Connecting to remote host via SSH...
+aws_instance.test-instance[1] (remote-exec):   Host: 54.229.70.37
+aws_instance.test-instance[1] (remote-exec):   User: ubuntu
+aws_instance.test-instance[1] (remote-exec):   Password: false
+aws_instance.test-instance[1] (remote-exec):   Private key: true
+aws_instance.test-instance[1] (remote-exec):   Certificate: false
+aws_instance.test-instance[1] (remote-exec):   SSH Agent: true
+aws_instance.test-instance[1] (remote-exec):   Checking Host Key: false
+aws_instance.test-instance[1] (remote-exec):   Target Platform: unix
+aws_instance.test-instance[0] (remote-exec): Connected!
+aws_instance.test-instance[0] (remote-exec): New password: Retype new password: passwd: password updated successfully
+aws_instance.test-instance[0]: Creation complete after 24s [id=i-0eea4bc7417ad7b9c]
+aws_instance.test-instance[1] (remote-exec): Connected!
+aws_instance.test-instance[1] (remote-exec): New password: Retype new password: passwd: password updated successfully
+aws_instance.test-instance[1]: Creation complete after 56s [id=i-0ba6f6088bc41b8ae]
+null_resource.test[0]: Creating...
+null_resource.test[2]: Creating...
+null_resource.test[1]: Creating...
+null_resource.test[2]: Provisioning with 'local-exec'...
+null_resource.test[1]: Provisioning with 'local-exec'...
+null_resource.test[2] (local-exec): Executing: ["/bin/sh" "-c" "     ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\" -i ~/.ssh/id_rsa_test ubuntu@3.250.77.110 ping -c1 10.0.2.205 \n    # ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\"  -i ~/.ssh/id_rsa_test ubuntu@3.250.77.110 cat /tmp/ping\n"]
+null_resource.test[1] (local-exec): Executing: ["/bin/sh" "-c" "     ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\" -i ~/.ssh/id_rsa_test ubuntu@54.229.70.37 ping -c1 10.0.2.221 \n    # ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\"  -i ~/.ssh/id_rsa_test ubuntu@54.229.70.37 cat /tmp/ping\n"]
+null_resource.test[0]: Provisioning with 'local-exec'...
+null_resource.test[0] (local-exec): Executing: ["/bin/sh" "-c" "     ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\" -i ~/.ssh/id_rsa_test ubuntu@34.241.87.23 ping -c1 10.0.2.45 \n    # ssh -o \"IdentitiesOnly=yes\" -o \"StrictHostKeyChecking=no\"  -i ~/.ssh/id_rsa_test ubuntu@34.241.87.23 cat /tmp/ping\n"]
+null_resource.test[2] (local-exec): Warning: Permanently added '3.250.77.110' (ED25519) to the list of known hosts.
+null_resource.test[0] (local-exec): Warning: Permanently added '34.241.87.23' (ED25519) to the list of known hosts.
+null_resource.test[1] (local-exec): Warning: Permanently added '54.229.70.37' (ED25519) to the list of known hosts.
+null_resource.test[0] (local-exec): PING 10.0.2.45 (10.0.2.45) 56(84) bytes of data.
+null_resource.test[0] (local-exec): 64 bytes from 10.0.2.45: icmp_seq=1 ttl=64 time=0.869 ms
+
+null_resource.test[0] (local-exec): --- 10.0.2.45 ping statistics ---
+null_resource.test[0] (local-exec): 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+null_resource.test[0] (local-exec): rtt min/avg/max/mdev = 0.869/0.869/0.869/0.000 ms
+null_resource.test[0]: Creation complete after 2s [id=2360195938961443184]
+null_resource.test[2] (local-exec): PING 10.0.2.205 (10.0.2.205) 56(84) bytes of data.
+null_resource.test[2] (local-exec): 64 bytes from 10.0.2.205: icmp_seq=1 ttl=64 time=0.861 ms
+
+null_resource.test[2] (local-exec): --- 10.0.2.205 ping statistics ---
+null_resource.test[2] (local-exec): 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+null_resource.test[2] (local-exec): rtt min/avg/max/mdev = 0.861/0.861/0.861/0.000 ms
+null_resource.test[2]: Creation complete after 2s [id=2436812747305535783]
+null_resource.test[1] (local-exec): PING 10.0.2.221 (10.0.2.221) 56(84) bytes of data.
+null_resource.test[1] (local-exec): 64 bytes from 10.0.2.221: icmp_seq=1 ttl=64 time=0.979 ms
+
+null_resource.test[1] (local-exec): --- 10.0.2.221 ping statistics ---
+null_resource.test[1] (local-exec): 1 packets transmitted, 1 received, 0% packet loss, time 0ms
+null_resource.test[1] (local-exec): rtt min/avg/max/mdev = 0.979/0.979/0.979/0.000 ms
+null_resource.test[1]: Creation complete after 3s [id=5072409897445727179]
+
+Apply complete! Resources: 6 added, 0 changed, 6 destroyed.
+
+Outputs:
+
+test-natgw_ip = "52.30.140.79"
